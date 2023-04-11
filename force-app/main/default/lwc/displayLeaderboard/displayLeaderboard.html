@@ -1,0 +1,69 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    
+ <lightning-card>
+ <h1 class="heading">Leaderboard</h1>
+
+    <lightning-layout>
+        <lightning-layout-item class="slds-p-left_small lgc-bg Quarter" >
+    
+
+             <lightning-combobox
+            name="Quarter"
+            label="Time Period"
+            value={quarterValue}
+            placeholder="Select Quarter"
+            options={quarterOptions}
+            onchange={handleQuarterChange} ></lightning-combobox>
+            <!-- <p>Selected value is: {quarterValue}</p> -->
+
+    </lightning-layout-item>
+
+    <lightning-layout-item class="slds-p-left_large lgc-bg Category" >
+    
+
+        <lightning-combobox
+            name="progress"
+            label="Category"
+            value={categoryvalue}
+            placeholder="Select Category"
+            options={categoryOptions}
+            onchange={handleChangeCategory} ></lightning-combobox>
+
+    <!-- <p>Selected value is: {categoryvalue}</p> -->
+
+    </lightning-layout-item>
+
+
+        <lightning-layout-item class="slds-p-left_small lgc-bg subcategory" >
+      
+       <lightning-combobox
+            name="progress"
+            label="Sub Category"
+            value={subCategoryValue}
+            placeholder="Select Sub Category"
+            options={optionsSubCategory}
+            onchange={handleChangeSubCategory} ></lightning-combobox>
+
+    <!-- <p>Selected value is: {subCategoryValue}</p> -->
+
+
+    </lightning-layout-item>
+
+
+    </lightning-layout>
+
+<!-- if:true={showLeaderBoard} -->
+    <div  class="slds-m-around_medium" style="background-color:aquamarine;">
+        <lightning-datatable
+                key-field="id"
+                data={leaderboardArr}
+                columns={columns}
+                hide-checkbox-column>
+        </lightning-datatable>
+    </div>
+
+    </lightning-card>
+
+</template>
