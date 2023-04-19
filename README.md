@@ -6,7 +6,11 @@ Now that you’ve created a Salesforce DX project, what’s next? Here are some 
 
 2) For that we have made Feedback object to store the feedback coming from different systems 
 3) We will store data in our Objects using REST Api , which will store the data in our objects on receiving from differet systems
-4) 
+4) Then we also maintain a employee database in Employee table 
+5) According to data received in feedback table, we fetch leaderboard from the feedback table and show it through reports and dashboards.
+6) Then we have set badge configuration for assigning badges to the employee which are in Badge Configuration table.
+7) Then if any employee is eligible for any badge , an approval process runs and send approval mail to the approver of the badge .
+8) If the approver approves the badge , then the badge is assigned to the employee.
 
 ## How Do You Plan to Deploy Your Changes?
 
