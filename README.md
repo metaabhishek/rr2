@@ -2,6 +2,12 @@
 
 Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
 
+1) We have created a system which will take feedback data under different categories , subcategories from different systems that already exists in our organization such as Academy,Reflect,Gistly etc.
+
+2) For that we have made Feedback object to store the feedback coming from different systems 
+3) We will store data in our Objects using REST Api , which will store the data in our objects on receiving from differet systems
+4) 
+
 ## How Do You Plan to Deploy Your Changes?
 
 Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
