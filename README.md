@@ -11,7 +11,17 @@ Now that you’ve created a Salesforce DX project, what’s next? Here are some 
 6) Then we have set badge configuration for assigning badges to the employee which are in Badge Configuration table.
 7) Then if any employee is eligible for any badge , an approval process runs and send approval mail to the approver of the badge .
 8) If the approver approves the badge , then the badge is assigned to the employee.
+9) We have also exposed API for deactivating employee , which will fetch the data of deactivate employees and mark deactivate our employee in our application.
+10) We have also exposed API for other systems to fetch the total points,badges etc for their purposes.
 
+Rewards and Recognition part.
+
+11) Then we have created a community site for employee to redeem rewards for the employee.
+12) Employee can go on the site and see the information related to the employee and also redeem the rewards available or eligible for .
+13) We will also be sending leaderboard email to employees.
+14) After employee redeem reward,a mail will be sent to employee and HR for the purpose of redeemed reward.
+
+ 
 ## How Do You Plan to Deploy Your Changes?
 
 Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
