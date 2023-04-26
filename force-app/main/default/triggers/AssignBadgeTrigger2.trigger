@@ -92,23 +92,23 @@ trigger AssignBadgeTrigger2 on Feedback__c (after  insert, after Update) {
     
     
     //for Inserting and updating the Monetization points in employee 
-    List<AggregateResult> pointsList = new List<AggregateResult>();
-    pointsList=[SELECT Employee__c , SUM(Points__c) FROM FeedBack__c WHERE Employee__c IN : employeeIdList GROUP BY Employee__c];
+   // List<AggregateResult> pointsList = new List<AggregateResult>();
+   // pointsList=[SELECT Employee__c , SUM(Points__c) FROM FeedBack__c WHERE Employee__c IN : employeeIdList GROUP BY Employee__c];
        
-    Map<Id,Employee__c> employeeMap=new Map<Id,Employee__c>();
+   // Map<Id,Employee__c> employeeMap=new Map<Id,Employee__c>();
    
-    for(Employee__c emp:[Select Name,Employee_Id__c,Monetization_Points__c from Employee__c]){
-        employeeMap.put(emp.Id, emp);       
-    }
+  //  for(Employee__c emp:[Select Name,Employee_Id__c,Monetization_Points__c from Employee__c]){
+       // employeeMap.put(emp.Id, emp);       
+  //  }
     
-    List<Employee__c> updateEmployees = new List<Employee__c>(); 
-    for(AggregateResult arg : pointsList){
-        Employee__c emp = new Employee__c();
-        emp = employeeMap.get(String.valueOf(arg.get('Employee__c')));
-        System.debug('Employee Id is ' + emp);
-        emp.Monetization_Points__c = (Decimal)arg.get('expr0');
-        updateEmployees.add(emp);
-    }
-    update updateEmployees;
+    //List<Employee__c> updateEmployees = new List<Employee__c>(); 
+    //for(AggregateResult arg : pointsList){
+      //  Employee__c emp = new Employee__c();
+       // emp = employeeMap.get(String.valueOf(arg.get('Employee__c')));
+       // System.debug('Employee Id is ' + emp);
+       // emp.Monetization_Points__c = (Decimal)arg.get('expr0');
+       // updateEmployees.add(emp);
+   // }
+  //  update updateEmployees;
  
 }

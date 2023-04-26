@@ -4,7 +4,7 @@ trigger ApprovedBadgeTrigger on Employee_Badge__c (before Update) {
     for(Employee_Badge__c empBadge:trigger.new){
         if(empBadge.Status__c=='Approved'){
             empBadge.Assigned_Badge__c=empBadge.Recommended_Badge__c;
-            empBadge.Recommended_Badge__c = NULL;
+            //empBadge.Recommended_Badge__c = NULL;
             employeeBadgeList.add(empBadge);
         }
         

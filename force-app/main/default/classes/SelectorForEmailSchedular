@@ -1,0 +1,23 @@
+public class SelectorForEmailScheduler extends fflib_SObjectSelector {
+  
+    public Schema.SObjectType getSObjectType() {
+        return Feedback__c.SObjectType;
+    }
+    
+    public List<Schema.SObjectField> getSObjectFieldList() {
+        return new List<Schema.SObjectField> {
+            Feedback__c.Employee__r.Name,
+            Feedback__c.Employee__r.Employee_Id__c,
+            Feedback__c.Sum(Points__c)
+        };
+    }
+    
+    public List<AggregateResult> getEmailSchedulerFields() {
+        String query = String.format(
+            'SELECT {0} FROM {1} GROUP BY Employee__r.Name, Employee__r.Employee_Id__c ORDER BY SUM(Points__c) DESC LIMIT 10',
+            new List<String>{getFieldListString(), getSObjectName()}
+        );
+        return (List<AggregateResult>) Database.query(query);
+    }
+    
+}

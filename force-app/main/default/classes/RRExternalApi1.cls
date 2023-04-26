@@ -27,6 +27,7 @@ global class RRExternalApi1 {
                 newEmp.Last_Name__c=feedback.lastName;
                 newEmp.Name=feedback.firstName+' '+feedback.lastName;
                 newEmp.Employee_Id__c=feedback.employeeId;
+                newemp.Email__c=feedback.email;
                 newEmployeeSet.add(newEmp);
             }
         }
@@ -198,7 +199,7 @@ global class RRExternalApi1 {
         
         
         Map<String, Employee__c> employeeMap = new Map<String, Employee__c>();
-        for(Employee__c emp : [SELECT Name, First_Name__c, Last_Name__c, Employee_Id__c FROM Employee__c]){
+        for(Employee__c emp : [SELECT Name, First_Name__c,Email__c ,Last_Name__c, Employee_Id__c FROM Employee__c]){
             employeeMap.put(emp.Employee_Id__c, emp);
         }
         
@@ -241,7 +242,7 @@ global class RRExternalApi1 {
                 Feedback__c newFeedback=new Feedback__c();
                 newFeedback.Employee__c=employeeMap.get(newData.employeeId).Id;
                 //newFeedback.Employee_Image__c=newData.employeeImage;
-                newFeedback.Date__c=Date.Today();
+                newFeedback.Date__c= Date.valueOf(newData.feedbackDate);
                 newFeedback.Description__c=newData.description;
                 newFeedback.Quarter__c=quarterMap.get(newData.quarter).Id;
                 newFeedback.System_Configuration__c=SysConfigMap.get(newData.systems+newData.category+newData.subCategory).Id;
@@ -271,15 +272,18 @@ global class RRExternalApi1 {
         //}
         return errorRecords;
     }
+  
     
     global class FeedbackDetails{
         public String firstName{get;set;}
         public String lastName{get;set;}
+        public String email {get;set;}
         public String rating { get; set; }
         public String unitType { get; set; }
         public String category { get; set; }
         public String quarter { get; set; }
         public String systems { get; set; }
+        public String feedbackDate { get; set; }
         public String employeeImage { get; set; }
         //public String systemDescription {get;set;}
         public String systemOwnerEmail{get;set;}
@@ -287,6 +291,7 @@ global class RRExternalApi1 {
         public String employeeId { get; set; }
         public String description { get; set; }
         public String rawRequest{get;set;}
+  
         
     }
     
