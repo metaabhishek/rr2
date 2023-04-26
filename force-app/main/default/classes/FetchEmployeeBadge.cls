@@ -1,4 +1,3 @@
-//adsfgghfhhjklk
 public class FetchEmployeeBadge {
 
     @AuraEnabled(cacheable=true)
